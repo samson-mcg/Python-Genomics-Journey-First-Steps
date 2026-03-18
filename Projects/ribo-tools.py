@@ -31,7 +31,7 @@ def random_rna_seq(length):
     return ''.join(random.choice(['A', 'U', 'C', 'G']) for _ in range(length))
 
 def rna_to_proteins(RNA): 
-    """translates RNA into protein sequences using the first reading frame"""
+    """Translates RNA into protein sequences using the first reading frame"""
     protein_sequences = []      
     current_sequence = []
     is_translating = False      
@@ -59,14 +59,13 @@ def rna_to_proteins(RNA):
         print(f"Seq{idx} (single-letter code) : {letters}\n")
 
 def rna_search(RNA):
+    """searches an rna sequence for the positions of codons that code for an amino acid """
     while True:
-        query = input("\nEnter a Codon (AUG), AA Name (Methionine), or Symbol (M) to search for, or write 'exit' to quit: ").strip()
-
+        query = input("\nEnter a Codon (AUG), AA Name (Methionine), or Symbol (M) to search for its positions, or write 'exit' to quit: ").strip()
         if query.lower() == 'exit':
              break
         
         target_codons = []
-
         if len(query) == 1:
             symbol = query.upper()
             full_name = next((name for name, s in aa_to_symbol.items() if s == symbol), None)
@@ -81,18 +80,17 @@ def rna_search(RNA):
             print(f"Could not identify '{query}'. Check your spelling! ")
             continue
             
-
         all_matches = []
         for i in range(len(RNA)-2):
             if RNA[i:i+3] in target_codons:
                 all_matches.append(i)
         if all_matches:
-                print(f"\n--- Results for {query} (Targeting: {', '.join(target_codons)}) ---")
-                in_frame = [m for m in all_matches if m % 3 == 0]
-                out_frame = [m for m in all_matches if m % 3 != 0]
-                print(f"Total occurences: {len(all_matches)}")
-                print(f"In-Frame (Frame 0): {in_frame if in_frame else 'None'}")
-                print(f"Out-of-Frame: {out_frame if out_frame else 'None'}")
+            print(f"\n--- Results for {query} (Targeting: {', '.join(target_codons)}) ---")
+            in_frame = [m for m in all_matches if m % 3 == 0]
+            out_frame = [m for m in all_matches if m % 3 != 0]
+            print(f"Total occurences: {len(all_matches)}")
+            print(f"In-Frame (Frame 0): {in_frame if in_frame else 'None'}")
+            print(f"Out-of-Frame: {out_frame if out_frame else 'None'}")
         else:
             print(f"No occurences of '{query}' found in the RNA sequence. Please try again.")
 
