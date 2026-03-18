@@ -64,7 +64,7 @@ def rna_to_proteins(RNA):
 def rna_search(RNA):
     """searches an rna sequence for the positions of codons that code for an amino acid """
     while True:
-        query = input("\nEnter a Codon (AUG), AA Name (Methionine), or Symbol (M) to search for its positions, or write 'exit' to quit: ").strip()
+        query = input("\nEnter a Codon (AUG), AA Name (Methionine), or Symbol (M) to search for its positions, write 'exit' to quit: ").strip()
         if query.lower() == 'exit':
              break
         
