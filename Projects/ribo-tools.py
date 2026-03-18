@@ -23,7 +23,10 @@ codon_to_aa = {
 stop_codons = ["UAA", "UAG", "UGA"]
 
 aa_to_symbol = {
-    "Phenylalanine": "F","Serine": "S", "Tyrosine": "Y", "Cysteine": "C", "Tryptophan": "W", "Leucine": "L", "Proline": "P", "Histidine": "H", "Glutamine": "Q", "Arginine": "R", "Isoleucine": "I", "Threonine": "T", "Asparagine": "N", "Lysine": "K", "Valine": "V", "Alanine": "A", "Aspartic acid": "D", "Glutamic acid" : "E", "Glycine" : "G","Methionine" : "M", 
+    "Phenylalanine": "F","Serine": "S", "Tyrosine": "Y", "Cysteine": "C", "Tryptophan": "W",
+    "Leucine": "L", "Proline": "P", "Histidine": "H", "Glutamine": "Q", "Arginine": "R",
+    "Isoleucine": "I", "Threonine": "T", "Asparagine": "N", "Lysine": "K", "Valine": "V",
+    "Alanine": "A", "Aspartic acid": "D", "Glutamic acid" : "E", "Glycine" : "G","Methionine" : "M", 
 }   
 
 def random_rna_seq(length):
